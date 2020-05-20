@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  deno-db:
+    image: mysql:5.7.12
+    container_name: deno-db
+    volumes:
+    - ./mysql:/tmp/database
+    command: mysqld --init-file="/tmp/database/init.sql"
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  adminer:
+    image: adminer
+    container_name: deno-adminer
+    ports:
+      - "50000:8080"
+
+volumes:
+  container-volume:
