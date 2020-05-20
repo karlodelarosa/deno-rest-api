@@ -1,5 +1,4 @@
 import client from '../db/MySqlClient.ts';
-// import { UserInterface } from '../contract/userInterface.ts';
 
 interface Key {
     id?: any
