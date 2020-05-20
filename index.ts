@@ -1,5 +1,5 @@
 import { Application } from 'https://deno.land/x/oak/mod.ts'
-import router from './core/routes/routes.ts';
+import router from './routes/routes.ts';
 
 const app = new Application();
 
@@ -7,7 +7,7 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 app.use((ctx) => {
-  ctx.response.body = "Hello Worlqweqweqwed!";
+  ctx.response.body = "Welcome to deno-rest-api";
 });
 
 await app.listen({ port: 8000 });

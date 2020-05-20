@@ -7,3 +7,5 @@ CREATE TABLE user (
     `country` VARCHAR(50) NOT NULL,
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO user (`name`, `country`) VALUES ('Karlo Dela Rosa', 'Philippines');

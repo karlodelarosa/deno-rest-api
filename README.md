@@ -1,64 +1,94 @@
-# deno-rest-api
-Simple REST API
+# Deno + MySQL Rest API Sample
+Simple Deno REST API
 
-### Install Deno: (MacOS)
+#### Install Deno: (MacOS)
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
-### Run Deno container
+#### Run Deno
 ```
-docker build -t deno-rest-api .
-```
-
-```
-# Linux/MAC
-docker run --name deno-api -p 8000:8000 -v $(pwd):/usr/src/app -d deno-rest-api
-
-# Windows
-docker run --name deno-api -p 8000:8000 -v %cd%:/usr/src/app -d deno-rest-api
+deno run --allow-net --allow-read --allow-write index.ts
 ```
 
-### Access Deno container
+#### Access Deno container
 ```
-localhost:5000
+localhost:8000
 ```
+---
+# Database
+> If you have your own database, just change the values db/MySqlClient.ts
 
-### Run MySQL container
+#### Run Docker container
 ```
 docker-compose up -d
 ```
 
-### Adminer
+#### Adminer
 ```
 localhost:50000
 ```
 
-### MySQL Credentials
+#### DB Credentials
 ```
+server: deno-db
 user: root
 password: root
+db: deno-db
+```
+---
+# HTTP REQUEST
+###### Set Header:
+_Content-Type: application/json_
+
+#### Get All Users
+```
+http://localhost:8000/users
 ```
 
-# How to use
-
-### Get All Users
+#### Get User by ID
 ```
-http://localhost:8000/all
+http://localhost:8000/user/:id
 ```
-
-### Get User by ID
-```
-http://localhost:8000/user/id/<VALUE HERE>
-
 eg.
-http://localhost:8000/user/id/1
+```
+http://localhost:8000/user/1
 ```
 
-### Get User by Name
+### POST
 ```
-http://localhost:8000/user/name/<VALUE HERE>
+http://localhost:8000/user
+```
+##### Request Body
+```
+{
+	"name": "John Doe",
+	"country": "USA"
+}
+```
 
-eg.
-http://localhost:8000/user/name/karlo
+### PUT
+```
+http://localhost:8000/user/:id
+```
+
+eg:
+```
+http://localhost:8000/user/1
+```
+##### Request Body
+```
+{
+	"name": "Jane Doe",
+	"country": "Japan"
+}
+```
+
+### DELETE
+```
+http://localhost:8000/user/:id
+```
+eg:
+```
+http://localhost:8000/user/1
 ```
