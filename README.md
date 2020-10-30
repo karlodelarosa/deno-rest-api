@@ -1,6 +1,9 @@
 # Deno + MySQL Rest API Sample
 Simple Deno REST API
 
+### Documentation
+https://dev.to/karlodelarosa3/deno-mysql-sample-2f00
+
 #### Install Deno: (MacOS)
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
